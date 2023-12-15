@@ -1,3 +1,4 @@
+import cors from 'cors'
 import express from 'express'
 import mongoose from 'mongoose'
 import { MONGODBURL, PORT } from './config.js'
@@ -5,7 +6,11 @@ import booksRoute from './routes/booksRoutes.js'
 
 const app = express()
 
+//Parsing Middelware
 app.use(express.json())
+
+//CORS Middelware
+app.use(cors())
 
 app.get('/', (req, res) => {
 	return res.status(234).send('Welcom')
